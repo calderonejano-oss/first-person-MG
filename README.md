@@ -1,0 +1,1 @@
+Lunes 26 oct 7:18p.m. : cree el proyecto del trabajo practico de primera persona para luego avanzar con el proyecto final, actualmente el proyecto se encuentra vacío hasta obtener la consigna, pero de apoco se ira actualizando con contenido en clase
