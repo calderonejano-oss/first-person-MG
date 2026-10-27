@@ -45,8 +45,18 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+
+		public void OnShoot(InputValue value)
+		{
+			Debug.Log("falso dispare");
+			ShootInput();
+		}
 #endif
 
+		public void ShootInput()
+		{
+			Debug.Log("real bala");
+		}
 
 		public void MoveInput(Vector2 newMoveDirection)
 		{
