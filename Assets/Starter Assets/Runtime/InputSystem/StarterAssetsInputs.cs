@@ -1,3 +1,4 @@
+using Unity.Hierarchy.Editor;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -20,6 +21,12 @@ namespace StarterAssets
         [Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
+
+		[Header("Shooting settings")]
+		public GameObject ProjectilePrefab;
+		public Transform ProjectileSpawnPoint;
+		public float ForceProjectile;
+		public float DestroySegundProjectile;
 
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
@@ -56,6 +63,9 @@ namespace StarterAssets
 		public void ShootInput()
 		{
 			Debug.Log("real bala");
+			GameObject NewProjectile = Instantiate(ProjectilePrefab , ProjectileSpawnPoint.position, transform.rotation);
+			NewProjectile.GetComponent<Rigidbody>().AddForce(ProjectileSpawnPoint.up * ForceProjectile, ForceMode.Impulse);
+			Destroy(NewProjectile, DestroySegundProjectile);
 		}
 
 		public void MoveInput(Vector2 newMoveDirection)
