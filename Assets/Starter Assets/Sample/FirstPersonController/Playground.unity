@@ -1076,7 +1076,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1075772580149075529, guid: f6082166f6dc34c76bfd711cfc93fcb0, type: 3}
       propertyPath: m_Name
-      value: Sphere
+      value: Enemigo
       objectReference: {fileID: 0}
     - target: {fileID: 7758460280505082515, guid: f6082166f6dc34c76bfd711cfc93fcb0, type: 3}
       propertyPath: m_LocalPosition.x
