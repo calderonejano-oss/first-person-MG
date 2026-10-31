@@ -1,18 +1,28 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor.SearchService;
+using System;
+using Unity.VisualScripting;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
-    public float VidaEnemy;
-    public TextMeshProUGUI textMeshPro;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("Vida Enemigo")]
+    [SerializeField] private float VidaEnemy;
+
+    [Header("FillAmount barra de vida")]
+    [SerializeField]private float FillAmount;
+
+    [Header("objeto a asignar")]
+    public TextMeshProUGUI TextoVida;
+    public Image BarraDeVida;
+   
+   [SerializeField, TextArea(5,10)] private string descripcion;
     void Start()
     {
        
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -24,6 +34,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
             Debug.Log("recibirdaño");
             Destroy(collision.gameObject);
             VidaEnemy -= 25f;
+            TextoVida.text = VidaEnemy.ToString();
+            BarraDeVida.fillAmount = VidaEnemy/FillAmount;
             if(VidaEnemy <= 0)
             {
                 Destroy(gameObject);
