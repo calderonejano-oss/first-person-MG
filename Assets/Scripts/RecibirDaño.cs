@@ -17,7 +17,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public TextMeshProUGUI TextoVida;
     public Image BarraDeVida;
    
+    public Navegation navegation;
    [SerializeField, TextArea(5,10)] private string descripcion;
+    void Awake()
+    {
+        navegation = GetComponent<Navegation>();
+    }
     void Start()
     {
        
@@ -34,13 +39,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
             Debug.Log("recibirdaño");
             Destroy(collision.gameObject);
             VidaEnemy -= 25f;
+            StartCoroutine(navegation.hit());
             TextoVida.text = VidaEnemy.ToString();
             BarraDeVida.fillAmount = VidaEnemy/FillAmount;
             if(VidaEnemy <= 0)
             {
-                Destroy(gameObject);
+                StartCoroutine(navegation.die());
             }
-            
         }
     }
 }

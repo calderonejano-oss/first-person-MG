@@ -86,10 +86,10 @@ GameObject:
   - component: {fileID: 7758460280505082515}
   - component: {fileID: 4484536652798624139}
   - component: {fileID: 7737363588138793973}
-  - component: {fileID: 3881863570354810160}
   - component: {fileID: 6711609576018641989}
   - component: {fileID: 7526703263792736488}
   - component: {fileID: 8778970104001310941}
+  - component: {fileID: 1767113077155763431}
   m_Layer: 0
   m_Name: Enemigo
   m_TagString: Enemy
@@ -114,6 +114,7 @@ Transform:
   - {fileID: 6444554963667247426}
   - {fileID: 6513662094392464354}
   - {fileID: 7859259292053802355}
+  - {fileID: 8228307092347266952}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4484536652798624139
@@ -131,7 +132,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075772580149075529}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -173,27 +174,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3881863570354810160
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1075772580149075529}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6711609576018641989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +190,7 @@ MonoBehaviour:
   FillAmount: 100
   TextoVida: {fileID: 8486099646028401516}
   BarraDeVida: {fileID: 91728062056797616}
+  navegation: {fileID: 0}
   descripcion: "Este script contiene la vida del enemigo, y controla como colisiona con ls balas que tira el jugador, ademas de contar con su propio interfaz donde cambia de tama\xF1o la barra de vida y su nomerito."
 --- !u!195 &7526703263792736488
 NavMeshAgent:
@@ -246,7 +227,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Navegation
   navMeshAgent: {fileID: 7526703263792736488}
+  animator: {fileID: 0}
   Target: {fileID: 0}
+  isDead: 0
+  gameObjectCanva: {fileID: 0}
+--- !u!136 &1767113077155763431
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075772580149075529}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.9204159
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.26012158, z: 0}
 --- !u!1 &2685804289153336892
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,7 +489,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3584886304890026084
 Transform:
   m_ObjectHideFlags: 0
@@ -894,7 +901,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6444554963667247426
 Transform:
   m_ObjectHideFlags: 0
@@ -1146,7 +1153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6513662094392464354
 Transform:
   m_ObjectHideFlags: 0
@@ -1241,3 +1248,65 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &2819017328504986980
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7758460280505082515}
+    m_Modifications:
+    - target: {fileID: 6138398490014415596, guid: a95169354a6ad48a8a31967e545e41a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138398490014415596, guid: a95169354a6ad48a8a31967e545e41a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.479
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138398490014415596, guid: a95169354a6ad48a8a31967e545e41a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138398490014415596, guid: a95169354a6ad48a8a31967e545e41a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138398490014415596, guid: a95169354a6ad48a8a31967e545e41a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138398490014415596, guid: a95169354a6ad48a8a31967e545e41a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138398490014415596, guid: a95169354a6ad48a8a31967e545e41a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138398490014415596, guid: a95169354a6ad48a8a31967e545e41a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138398490014415596, guid: a95169354a6ad48a8a31967e545e41a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138398490014415596, guid: a95169354a6ad48a8a31967e545e41a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6801605643945517142, guid: a95169354a6ad48a8a31967e545e41a9, type: 3}
+      propertyPath: m_Name
+      value: AbuelaEnemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a95169354a6ad48a8a31967e545e41a9, type: 3}
+--- !u!4 &8228307092347266952 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6138398490014415596, guid: a95169354a6ad48a8a31967e545e41a9, type: 3}
+  m_PrefabInstance: {fileID: 2819017328504986980}
+  m_PrefabAsset: {fileID: 0}
